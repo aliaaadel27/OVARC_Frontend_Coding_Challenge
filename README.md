@@ -52,11 +52,12 @@ Right now, the BooksTable is doing "double duty." It acts as a presentational co
 I am planning to simplify the table by making it "dumb" (purely presentational). Instead of the table containing the editing logic, the parent pages will inject the specific Cell Renderers needed for each column via the Render Props Pattern.
 
 -Why this approach?
-   1-Decoupling Logic: The BooksTable will no longer care what it is displaying; its only job is to render the provided structures.
    
-   2-True Reusability: By shifting the logic to parent pages, we can reuse this exact same table for any future entity without ever modifying the table's internal code.
+      1-Decoupling Logic: The BooksTable will no longer care what it is displaying; its only job is to render the provided structures.
    
-   3-Maintenance: We achieve a clean "Separation of Concerns"—the Page acts as the "Brain" (handling logic and state), while the Table acts as the "Body" (handling layout and styling).
+      2-True Reusability: By shifting the logic to parent pages, we can reuse this exact same table for any future entity without ever modifying the table's internal code.
+   
+      3-Maintenance: We achieve a clean "Separation of Concerns"—the Page acts as the "Brain" (handling logic and state), while the Table acts as the "Body" (handling layout and styling).
 
 ## Project Structure
 - src/pages/: Contains page components like Home, BrowseStores, Browse, BrowseAuthors, and Inventory.
