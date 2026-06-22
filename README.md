@@ -43,6 +43,18 @@
    This is where the admin adds more books to the store’s
 inventory. The books should be viewable either in a list view or grouped by the author via the tab selection. The add to inventory CTA pops up a modal to select the new book and set its price.
 
+##Future Roadmap: Making the Table More Flexible
+-Current Setup:
+Right now, the BooksTable is doing "double duty." It acts as a presentational component, but it also contains the business logic to decide what to edit—checking if it’s a Book Name (on the Catalog page) or a Book Price (on the Inventory page). While this works, it tightly couples the table to specific pages, making it harder to extend as the project grows.
+
+-The Plan: Adopting the "Render Props Pattern"
+I am planning to simplify the table by making it "dumb" (purely presentational). Instead of the table containing the editing logic, the parent pages will inject the specific Cell Renderers needed for each column via the Render Props Pattern.
+
+-Why this approach?
+   1-Decoupling Logic: The BooksTable will no longer care what it is displaying; its only job is to render the provided structures.
+   2-True Reusability: By shifting the logic to parent pages, we can reuse this exact same table for any future entity without ever modifying the table's internal code.
+   3-Maintenance: We achieve a clean "Separation of Concerns"—the Page acts as the "Brain" (handling logic and state), while the Table acts as the "Body" (handling layout and styling).
+
 ## Project Structure
 - src/pages/: Contains page components like Home, BrowseStores, Browse, BrowseAuthors, and Inventory.
 
